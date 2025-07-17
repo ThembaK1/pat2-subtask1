@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <cctype>
 
 const char DOT = '.';
 const char DASH = '-';
@@ -36,6 +37,14 @@ std::map<char, std::string> morseMap = {
 };
 
 int main() {
+    std::cout << "Enter a short message in English: ";
+    std::string input;
+    std::getline(std::cin, input);
+
+    for (char& c : input) {
+        c = std::toupper(c);
+    }
+
     std::cout << "Morse Code Translator" << std::endl;
     return 0;
 }
