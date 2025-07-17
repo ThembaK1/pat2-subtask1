@@ -46,13 +46,17 @@ int main() {
     }
 
     std::cout << "\nTranslated Morse Code:\n";
+    std::string fullMorse = "";
     for (char c : input) {
         if (morseMap.find(c) != morseMap.end()) {
             std::cout << c << ": " << morseMap[c] << std::endl;
+            fullMorse += morseMap[c] + "   ";  // 3 spaces between letters
         } else {
             std::cout << c << ": [Invalid Character]" << std::endl;
         }
     }
+
+    std::cout << "\nFull Morse Code Message:\n" << fullMorse << std::endl;
 
     return 0;
 }
