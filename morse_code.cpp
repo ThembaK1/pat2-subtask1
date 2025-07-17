@@ -3,9 +3,11 @@
 #include <string>
 #include <cctype>
 
-const char DOT = '.';
-const char DASH = '-';
+// Constants for Morse code symbols
+const char DOT = '.';    // ASCII 46
+const char DASH = '-';   // ASCII 45
 
+// Morse code mapping for A-Z and space
 std::map<char, std::string> morseMap = {
     {'A', std::string() + DOT + DASH},
     {'B', std::string() + DASH + DOT + DOT + DOT},
@@ -33,7 +35,7 @@ std::map<char, std::string> morseMap = {
     {'X', std::string() + DASH + DOT + DOT + DASH},
     {'Y', std::string() + DASH + DOT + DASH + DASH},
     {'Z', std::string() + DASH + DASH + DOT + DOT},
-    {' ', " "}
+    {' ', " "}  // Space between words
 };
 
 int main() {
@@ -41,6 +43,7 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
 
+    // Convert input to uppercase
     for (char& c : input) {
         c = std::toupper(c);
     }
@@ -52,6 +55,7 @@ int main() {
             std::cout << c << ": " << morseMap[c] << std::endl;
             fullMorse += morseMap[c] + "   ";  // 3 spaces between letters
         } else {
+            // Handle invalid characters gracefully
             std::cout << c << ": [Invalid Character]" << std::endl;
         }
     }
