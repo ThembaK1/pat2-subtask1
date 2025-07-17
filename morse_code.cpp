@@ -45,6 +45,14 @@ int main() {
         c = std::toupper(c);
     }
 
-    std::cout << "Morse Code Translator" << std::endl;
+    std::cout << "\nTranslated Morse Code:\n";
+    for (char c : input) {
+        if (morseMap.find(c) != morseMap.end()) {
+            std::cout << c << ": " << morseMap[c] << std::endl;
+        } else {
+            std::cout << c << ": [Invalid Character]" << std::endl;
+        }
+    }
+
     return 0;
 }
